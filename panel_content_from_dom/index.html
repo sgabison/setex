@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Panel's content from DOM | TestApp</title>
+        
+        <!-- Sencha Touch -->
+        <link href="../../___sencha_touch___/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+        <script src="../../___sencha_touch___/sencha-touch.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+		Ext.setup({ onReady:function(){
+			
+			new Ext.Panel({
+				fullscreen: 		true,
+				styleHtmlContent: 	true,
+				scroll:				'vertical',
+				tpl: 				Ext.Template.from('panel-content-html'),
+				data: {},
+			}).show();
+			
+			
+		}});
+		</script>
+		
+    </head>
+    <body>
+    	<div style="display:none">
+	    	<div id="panel-content-html">
+		    	<h3>Panel's Content from DOM Node</h3>
+		    	<p>
+		    		This demo demonstrates how to setup a SenchaTouch panel to be filled up with some content within the document's BODY.
+		    	</p>
+		    	<ol>
+					<li>We need a DIV (a generic node) to be identified by an ID so we can reference to it from Ext</li>
+			    	<li>We setup a panel using a <em>Template</em> who capture contents from an HTML node identified by ID</li>
+			    	<li>We setup an empty data source to force Panel to render the Template.</li>
+		    	</ol>
+		    	<p>
+		    		A full explained article can be found here:<br />
+		    		<a href="http://www.movableapp.com/2011/09/sencha-touch-panel-content-from-template/" terget="blank" title="Sencha Touch Tutorials" target="_blank">how to load HTML DOM content identified by ID into a Sencha Touch PANEL body</a>
+		    	</p>
+	    	</div>
+    	</div>
+    </body>
+</html>

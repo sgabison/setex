@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Starting With Load Mask - TestApp</title>
+        
+        <!-- Sencha Touch -->
+        <link href="../../___sencha_touch___/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+        <script src="../../___sencha_touch___/sencha-touch.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+		
+		var startMask;
+		
+		Ext.onReady(function(){
+			
+			console.log('Ext.onReady');
+			
+			startMask = new Ext.LoadMask(Ext.getBody(),{msg:'Initializing...'});
+			startMask.show();
+			
+		});
+		
+		Ext.setup({
+			onReady: function() {
+				
+				console.log("Ext.setup.onReady");
+				
+				var displayViewport = function() {
+					
+					var viewport = new Ext.Panel({
+						fullscreen: 			true,
+						styleHtmlContent: 		true,
+						html:					'Application Viewport',
+						listeners: {
+							render: function() {
+								console.log('Viewport.render');
+								startMask.hide();
+							}
+						}
+					});
+					
+				}
+				
+				setTimeout(displayViewport,1000);
+				
+			}
+		});
+		</script>
+		
+    </head>
+    <body></body>
+</html>
